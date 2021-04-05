@@ -1,0 +1,20 @@
+@import '_blazon-base';
+@import '_blazon-flags-ru-png';
+@import '_blazon-flags-ru-svg';
+
+
+@each $size-name, $size-content in $sizes {
+    .blazon-square.blazon-#{$size-name}, .blazon-round.blazon-#{$size-name} {
+        @include blazon-square($size-content);
+    }
+}
+
+.blazon-square {
+    @extend .blazon-square.blazon-md;
+    background-position-x: center;
+}
+
+.blazon-flagv.blazon-round {
+    @extend .blazon-square;
+    border-radius: 50%;
+}

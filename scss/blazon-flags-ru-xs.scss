@@ -1,0 +1,15 @@
+@import '_variables';
+@import '_blazon-base';
+
+
+// PNG tiny embedded flags
+.blazon-flag {
+    @include blazon-flag();
+    @include blazon-size(map-get($sizes,xs));
+}
+
+@each $region in $regions {
+    .blazon-flag.flag-ru-#{$region} {
+        background-image: url('#{$blazon-flags-path}#{$blazon-png-path}xs/ru/#{$region}.png');
+    }
+}

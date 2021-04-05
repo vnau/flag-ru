@@ -18,7 +18,7 @@ jobs:
       - name: Build flags
         run: |
           npm install
-          npm run gulp -- zip
+          npm run gulp -- build
       - name: Upload Release Assets
         run: |
           set -x

@@ -1,0 +1,42 @@
+@import '_variables';
+
+// PNG Flags sprites
+@each $size-name, $size-content in $sizes {
+    .blazon-flag.blazon-#{$size-name} {
+        @include blazon-size($size-content);
+
+        @if(map-get($size-content,sprite) == true) {
+            background: url('#{$blazon-flags-path}#{$blazon-png-path}#{$size-name}/ru/sprites.png');
+        }
+        @else {
+            background-position: 0 0;
+        }
+    }
+}
+
+.blazon-flag {
+    @include blazon-flag;
+    @extend .blazon-flag.blazon-md;
+}
+
+// Sprites offsets
+@for $i from 1 through length($regions) {
+    @if($i>1) {
+        $region: nth($regions, $i);
+
+        .blazon-flag.flag-ru-#{$region} {
+            background-position: 0 #{round(1000000*(-1+$i)/(length($regions)-1))/10000}#{'%'};
+        }
+    }
+}
+
+// Non-sprites
+@each $size-name, $size-content in $sizes {
+    @if(map-get($size-content,sprite) == false) {
+        @each $region in $regions {
+            .blazon-flag.blazon-#{$size-name}.flag-ru-#{$region} {
+                background-image: url('#{$blazon-flags-path}#{$blazon-png-path}#{$size-name}/ru/#{$region}.png');
+            }
+        }
+    }
+}

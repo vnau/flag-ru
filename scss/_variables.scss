@@ -1,0 +1,7 @@
+$blazon-flags-path: '../flags/' !default;
+$blazon-svg-path: 'svg/ru/' !default;
+$blazon-png-path: '' !default;
+
+$regions: ad, al, alt, amu, ark, ast, ba, bel, bry, bu, ce, che, chu, cr, cu, da, in, irk, iva, kam, kb, kc, kda, kem, kgd, kgn, kha, khm, kir, kk, kl, klu, ko, kos, kr, krs, kya, len, lip, mag, me, mo, mos, mow, mur, nen, ngr, niz, nvs, oms, ore, orl, per, pnz, pri, psk, ros, rya, sa, sak, sam, sar, se, sev, smo, spe, sta, sve, ta, tam, tom, tul, tve, ty, tyu, ud, uly, vgg, vla, vlg, vor, yan, yar, yev, zab;
+
+$sizes: ( xs: (width: 16, height: 11, radius: 2, sprite: true), sm: (width: 30, height: 20, radius: 3, sprite: true), md: (width: 60, height: 40, radius: 3, sprite: true), lg: (width: 120, height: 80, radius: 3, sprite: true), xl: (width: 240, height: 160, radius: 3, sprite: false), );

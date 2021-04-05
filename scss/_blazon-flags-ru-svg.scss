@@ -1,0 +1,20 @@
+@import '_variables';
+
+/// SVG Flags
+@each $size-name, $size-content in $sizes {
+    .blazon-flagv.blazon-#{$size-name} {
+        @include blazon-size($size-content);
+        background-size: #{map-get($size-content,width)}px #{map-get($size-content,height)}px !important;
+    }
+}
+
+.blazon-flagv {
+    @include blazon-flag;
+    @extend .blazon-flagv.blazon-md;
+}
+
+@each $region in $regions {
+    .blazon-flagv.flag-ru-#{$region} {
+        background-image: url('#{$blazon-flags-path}#{$blazon-svg-path}#{$region}.svg');
+    }
+}
