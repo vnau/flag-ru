@@ -1,6 +1,6 @@
 # Флаги регионов России
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/vnau/blazon-flags)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/vnau/blazon)
 
 Коллекция изображений флагов 85 субъектов Российской Федерации в форматах PNG и SVG.
 
