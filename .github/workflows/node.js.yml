@@ -1,0 +1,32 @@
+on:
+  push:
+    tags: [ 'v*' ]
+
+name: Build blazon-flags
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout flags
+        uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+      - name: Build flags
+        run: |
+          npm install
+          npm run gulp -- zip
+      - name: Upload Release Assets
+        run: |
+          set -x
+          assets=()
+          for asset in ./build/*.zip; do
+            assets+=("-a" "$asset")
+          done
+          tag_name="${GITHUB_REF##*/}"
+          hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
